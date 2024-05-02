@@ -80,21 +80,21 @@ class StringCalculatorTest {
     //POC tests - not for PROD
     @Test
     void stringSplit() {
-        List result = Arrays.asList("1;;;2,,3".split("(;;;)|(,,)"));
+        List<String> result = Arrays.asList("1;;;2,,3".split("(;;;)|(,,)"));
         assertEquals("[1, 2, 3]", result.toString());
     }
 
     @Test
     void getOneDelimiters() {
         List<String> delimiters = calculator.getDelimiters(";");
-        assertEquals(Arrays.asList(";"), delimiters);
+        assertEquals(List.of(";"), delimiters);
         assertEquals(";",calculator.getDelimiterRegexp(delimiters));
     }
 
     @Test
     void getDelimiterInBrackets() {
         List<String> delimiters = calculator.getDelimiters("[;]");
-        assertEquals(Arrays.asList(";"), delimiters);
+        assertEquals(List.of(";"), delimiters);
         assertEquals(";",calculator.getDelimiterRegexp(delimiters));
     }
 
