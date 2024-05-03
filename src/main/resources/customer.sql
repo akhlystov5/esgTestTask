@@ -9,5 +9,6 @@ CREATE TABLE customer (
                           `county` varchar(255) not NULL,
                           `country` varchar(255) not NULL,
                           `postcode` varchar(32) not NULL,
-                          PRIMARY KEY (`id`)
+                          PRIMARY KEY (`id`),
+                          CONSTRAINT customer_ref UNIQUE (customer_ref)
 ) ENGINE=InnoDB;
