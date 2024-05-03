@@ -19,6 +19,7 @@ I have 2 spring apps:
 * EsgRestApplication.java that runs a Web Server accepting REST calls.
 * EsgConsoleApplication.java that runs from a command line accepting .csv filename
 
+
 ____
 I have used
 * Spring Boot framework with JPA for few code lines solution that suits this task
