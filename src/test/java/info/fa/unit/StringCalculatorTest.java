@@ -1,5 +1,6 @@
-package info.fa;
+package info.fa.unit;
 
+import info.fa.unit.StringCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;

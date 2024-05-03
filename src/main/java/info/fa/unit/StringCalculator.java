@@ -1,4 +1,4 @@
-package info.fa;
+package info.fa.unit;
 
 import org.apache.commons.lang3.StringUtils;
 
