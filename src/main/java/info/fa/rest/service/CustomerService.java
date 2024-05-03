@@ -1,5 +1,6 @@
 package info.fa.rest.service;
 
+import info.fa.util.Converter;
 import info.fa.model.dto.CustomerDto;
 import info.fa.rest.enitity.Customer;
 import info.fa.rest.repo.CustomerRepo;
@@ -13,12 +14,11 @@ public class CustomerService {
 
     CustomerRepo customerRepo;
 
+    Converter converter;
 
     public CustomerDto search(String customerRef) {
         Customer customer = customerRepo.findByCustomerRef(customerRef);
-        CustomerDto customerDto = new CustomerDto(customer.getCustomerRef(), customer.getCustomerName(),
-                customer.getAddressLine1(), customer.getAddressLine2(), customer.getTown(), customer.getCounty(),
-                customer.getCountry(), customer.getPostcode());
+        CustomerDto customerDto = converter.convert(customer);
         return customerDto;
     }
 

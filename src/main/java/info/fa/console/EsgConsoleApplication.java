@@ -11,6 +11,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @Slf4j
+@ComponentScan(value = {"info.fa.console", "info.fa.util"})
 @SpringBootApplication
 @AllArgsConstructor
 public class EsgConsoleApplication implements CommandLineRunner {

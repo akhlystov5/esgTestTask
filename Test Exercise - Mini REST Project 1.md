@@ -9,7 +9,7 @@ This is a description of the 2nd Task from ESG test pack -
 
 
 * As this is a test task, I have taken a simplistic approach to many aspects in order to optimize for development time as this 30-60 minutes task took longer.
-There are many things that can be improved further like Exception handling, validation, edge cases testing etc..
+There are many things that can be improved further like Exception handling, validation, edge cases testing, controller testing etc..
 * I have tried to make reasonable compromises to delivery a working app with a good foundation for extension.
 
 _____

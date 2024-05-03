@@ -1,6 +1,7 @@
 package info.fa.console.util;
 
 import info.fa.model.dto.CustomerDto;
+import info.fa.util.Converter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,7 @@ class ConverterTest {
     void convertNull() {
         RuntimeException thrown = assertThrows(
                 RuntimeException.class,
-                () -> converter.convert(null),
+                () -> converter.convertArray(null),
                 "Expected convert() to throw, but it didn't"
         );
         assertEquals("values array is null", thrown.getMessage());
@@ -23,7 +24,7 @@ class ConverterTest {
     void convertEmpty() {
         RuntimeException thrown = assertThrows(
                 RuntimeException.class,
-                () -> converter.convert(new String[]{}),
+                () -> converter.convertArray(new String[]{}),
                 "Expected convert() to throw, but it didn't"
         );
         assertEquals("invalid array", thrown.getMessage());
@@ -33,7 +34,7 @@ class ConverterTest {
     void convert4columns() {
         RuntimeException thrown = assertThrows(
                 RuntimeException.class,
-                () -> converter.convert(new String[]{}),
+                () -> converter.convertArray(new String[]{}),
                 "Expected convert() to throw, but it didn't"
         );
         assertEquals("invalid array", thrown.getMessage());
@@ -41,14 +42,14 @@ class ConverterTest {
 
     @Test
     void convert1row() {
-        CustomerDto customerDto = converter.convert(new String[]{"ref1","Jake Green","Flat 2A","234 Ballards Lane","Finchley","Greater London","UK","N3 2LY"});
-        assertEquals(CustomerDto.builder().customerRef("ref1")
-                .customerName("Jake Green").addressLine1("Flat 2A")
-                .addressLine2("234 Ballards Lane")
-                .town("Finchley")
-                .county("Greater London")
-                .country("UK")
-                .postcode("N3 2LY").build(), customerDto);
+        CustomerDto customerDto = converter.convertArray(new String[]{"ref1","Jake Green","Flat 2A","234 Ballards Lane","Finchley","Greater London","UK","N3 2LY"});
+        assertEquals(new CustomerDto("ref1",
+                "Jake Green", "Flat 2A",
+                "234 Ballards Lane",
+                "Finchley",
+                "Greater London",
+                "UK",
+                "N3 2LY"), customerDto);
     }
 
 }

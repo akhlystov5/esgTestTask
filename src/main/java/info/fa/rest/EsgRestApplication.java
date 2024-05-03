@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @EntityScan(basePackages = {"info.fa.rest"})
+@ComponentScan(value = {"info.fa.rest", "info.fa.util"})
 @EnableJpaRepositories(basePackages = {"info.fa.rest"})
 @SpringBootApplication
 public class EsgRestApplication {

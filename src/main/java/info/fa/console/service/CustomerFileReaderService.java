@@ -1,12 +1,10 @@
 package info.fa.console.service;
 
 import com.opencsv.CSVReader;
-import info.fa.console.util.Converter;
+import info.fa.util.Converter;
 import info.fa.model.dto.CustomerDto;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
@@ -43,7 +41,7 @@ public class CustomerFileReaderService {
                 String[] values;
                 while ((values = csvReader.readNext()) != null) {
                     //TODO validation can be done
-                    records.add(converter.convert(values));
+                    records.add(converter.convertArray(values));
                 }
             }
             return records;
