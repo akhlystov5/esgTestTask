@@ -12,8 +12,7 @@ public class Converter {
         if (values.length != 8) {
             throw new RuntimeException("invalid array");
         }
-        return CustomerDto.builder().customerRef(values[0]).customerName(values[1])
-                .addressLine1(values[2]).addressLine2(values[3])
-                .town(values[4]).county(values[5]).country(values[6]).postcode(values[7]).build();
+        return new CustomerDto(values[0], values[1], values[2],values[3]
+                ,values[4], values[5], values[6], values[7]);
     }
 }

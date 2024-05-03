@@ -13,10 +13,12 @@ public class CustomerService {
 
     CustomerRepo customerRepo;
 
+
     public CustomerDto search(String customerRef) {
         Customer customer = customerRepo.findByCustomerRef(customerRef);
-        CustomerDto customerDto = new CustomerDto();
-        BeanUtils.copyProperties(customer, customerDto);
+        CustomerDto customerDto = new CustomerDto(customer.getCustomerRef(), customer.getCustomerName(),
+                customer.getAddressLine1(), customer.getAddressLine2(), customer.getTown(), customer.getCounty(),
+                customer.getCountry(), customer.getPostcode());
         return customerDto;
     }
 
